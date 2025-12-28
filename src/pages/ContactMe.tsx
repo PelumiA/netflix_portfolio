@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ContactMe.css';
 import profilePic from '../images/sumanth.jpeg';
-import { FaEnvelope, FaPhoneAlt, FaCoffee, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaCoffee, FaLinkedin } from 'react-icons/fa';
 import { ContactMe as IContactMe } from '../types';
 import { getContactMe } from '../queries/getContactMe';
 
@@ -49,12 +49,6 @@ const ContactMe: React.FC = () => {
           <FaEnvelope className="contact-icon" />
           <a href={`mailto:${userData.email}`} className="contact-link">
             {userData.email}
-          </a>
-        </div>
-        <div className="contact-item">
-          <FaPhoneAlt className="contact-icon" />
-          <a href={`tel:${userData.phoneNumber}`} className="contact-link">
-            {userData.phoneNumber}
           </a>
         </div>
         <div className="contact-fun">

@@ -86,6 +86,7 @@ const Projects: React.FC = () => {
             <img src={project.image.url} alt={project.title} className="project-image" />
             <div className="project-details">
               <h3>{project.title}</h3>
+              <span className="project-date">{project.date}</span>
               <p>{project.description}</p>
               <div className="tech-used">
                 {project.techUsed.split(', ').map((tech, i) => (

@@ -1,25 +1,14 @@
 // queries/getProfileBanner.ts
-import datoCMSClient from './datoCMSClient';
 import { ProfileBanner } from '../types';
 
-const GET_PROFILE_BANNER = `
- {
-  profilebanner {
-    backgroundImage {
-      url
-    }
-    headline
-    resumeLink {
-      url
-    }
-    linkedinLink
-    profileSummary
-  }
-}
-`;
-
+// PLACEHOLDER: Update resumeLink.url with hosted resume PDF URL
 export async function getProfileBanner(): Promise<ProfileBanner> {
-  const data = await datoCMSClient.request<{ profilebanner: ProfileBanner }>(GET_PROFILE_BANNER);
-  console.log("🚀 ~ getProfileBanner ~ data:", data)
-  return data.profilebanner;
+  return {
+    backgroundImage: { url: '' }, // Background comes from browse page selection
+    headline: 'OLUWAPELUMI ADENIKINJU',
+    resumeLink: { url: '#' }, // PLACEHOLDER: Add hosted resume URL
+    linkedinLink: 'https://www.linkedin.com/in/pelumiade/',
+    profileSummary:
+      'Dynamic Cloud Engineer / Solutions Architect with 10 years of experience designing, deploying, and securing scalable infrastructure across Azure and AWS. Expert in CI/CD pipelines, infrastructure as code, Kubernetes orchestration, and building resilient automated infrastructure using GitOps and serverless patterns.',
+  };
 }

@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import NetflixTitle from './NetflixTitle';
 import ProfilePage from './profilePage/profilePage';
 import Browse from './browse/browse';
-import WorkPermit from './pages/WorkPermit';
 import WorkExperience from './pages/WorkExperience';
 import Recommendations from './pages/Recommendations';
 import Skills from './pages/Skills';
@@ -21,7 +20,6 @@ const App: React.FC = () => {
       <Route path="/" element={<NetflixTitle />} />
       <Route path="/browse" element={<Browse />} />
       <Route path="/profile/:profileName" element={<Layout><ProfilePage /></Layout>} />
-      <Route path="/work-permit" element={<Layout><WorkPermit /></Layout>} />
       <Route path="/work-experience" element={<Layout><WorkExperience /></Layout>} />
       <Route path="/recommendations" element={<Layout><Recommendations /></Layout>} />
       <Route path="/skills" element={<Layout><Skills /></Layout>} />

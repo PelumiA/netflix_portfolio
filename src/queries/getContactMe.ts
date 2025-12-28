@@ -1,25 +1,16 @@
 // queries/getContactMe.ts
-import datoCMSClient from './datoCMSClient';
 import { ContactMe } from '../types';
 
-const GET_CONTACT_ME = `
-  query {
-    contactMe {
-      profilePicture {
-        url
-      }
-      name
-      title
-      summary
-      companyUniversity
-      linkedinLink
-      email
-      phoneNumber
-    }
-  }
-`;
-
 export async function getContactMe(): Promise<ContactMe> {
-  const data = await datoCMSClient.request<{ contactMe: ContactMe }>(GET_CONTACT_ME);
-  return data.contactMe;
+  return {
+    profilePicture: { url: '' }, // PLACEHOLDER: Add profile picture URL
+    name: 'Oluwapelumi Adenikinju',
+    title: 'Cloud Engineer / Solutions Architect',
+    summary:
+      'Cloud infrastructure expert specializing in Azure and AWS environments. Passionate about building secure, scalable systems and automating everything.',
+    companyUniversity: 'Houston, TX',
+    linkedinLink: 'https://www.linkedin.com/in/pelumiade/',
+    email: 'pelumi.adeni@gmail.com',
+    phoneNumber: '', // Intentionally empty - not displayed
+  };
 }
