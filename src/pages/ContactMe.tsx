@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './ContactMe.css';
-import { FaEnvelope, FaCoffee, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import { ContactMe as IContactMe } from '../types';
 import { getContactMe } from '../queries/getContactMe';
 
@@ -52,7 +52,6 @@ const ContactMe: React.FC = () => {
         </div>
         <div className="contact-fun">
           <p>Or catch up over a coffee ☕</p>
-          <FaCoffee className="coffee-icon" />
         </div>
       </div>
     </div>
