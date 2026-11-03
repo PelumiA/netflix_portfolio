@@ -1,0 +1,28 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+}
+.logo__mark {
+  width: 30px;
+  height: 22px;
+}
+.logo__mark rect {
+  fill: var(--accent);
+  rx: 7;
+}
+.logo__mark path {
+  fill: #fff;
+}
+.logo__word {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+.logo__loc {
+  align-self: flex-start;
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--fg-muted);
+}

@@ -1,0 +1,143 @@
+.shorts {
+  height: calc(100dvh - var(--topbar-h));
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+.shorts::-webkit-scrollbar {
+  display: none;
+}
+.short {
+  --h: 220;
+  height: calc(100dvh - var(--topbar-h));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.short__card {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  max-width: calc(100vw - 96px);
+  overflow: hidden;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 50% 30%, hsl(var(--h) 90% 60% / 0.55), transparent 60%),
+    linear-gradient(180deg, hsl(var(--h) 55% 22%), hsl(calc(var(--h) + 30) 50% 6%));
+  color: #fff;
+}
+.short__icon {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 45%;
+  height: auto;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  color: hsl(var(--h) 90% 88%);
+  filter: drop-shadow(0 8px 32px hsl(var(--h) 90% 50% / 0.6));
+  animation: short-float 4s ease-in-out infinite;
+}
+@keyframes short-float {
+  50% {
+    transform: translateX(-50%) translateY(-10px) rotate(-3deg);
+  }
+}
+.short__info {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+}
+.short__cat {
+  font-size: 13px;
+  opacity: 0.85;
+}
+.short__name {
+  margin: 4px 0;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.short__desc {
+  margin: 0 0 12px;
+  line-height: 20px;
+}
+.short__channel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+.short__channel .sub-btn {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+  background: #fff;
+  color: #0f0f0f;
+}
+.short__channel .sub-btn--on {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+.short__rail {
+  align-self: flex-end;
+  display: grid;
+  gap: 16px;
+}
+.short__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.short__action span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-raised);
+  font-size: 24px;
+}
+.short__action:hover span {
+  background: var(--bg-hover);
+}
+
+@media (max-width: 767px) {
+  .shorts,
+  .short {
+    height: calc(100dvh - var(--topbar-h) - var(--bottomnav-h) - env(safe-area-inset-bottom));
+  }
+  .short {
+    position: relative;
+    padding: 0;
+  }
+  .short__card {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: auto;
+    border-radius: 0;
+  }
+  /* Action rail floats over the card, like the app */
+  .short__rail {
+    position: absolute;
+    right: 8px;
+    bottom: 140px;
+  }
+  .short__action {
+    color: #fff;
+  }
+  .short__action span {
+    background: rgba(0, 0, 0, 0.35);
+  }
+  .short__info {
+    padding-right: 72px;
+  }
+}

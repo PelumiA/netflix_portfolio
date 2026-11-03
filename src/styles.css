@@ -1,0 +1,203 @@
+:root {
+  --bg: #0f0f0f;
+  --bg-raised: #212121;
+  --bg-hover: #272727;
+  --bg-chip: #272727;
+  --bg-chip-active: #f1f1f1;
+  --fg-chip-active: #0f0f0f;
+  --fg: #f1f1f1;
+  --fg-muted: #aaaaaa;
+  --border: #3f3f3f;
+  --accent: #ff6b35;
+  --accent-fg: #ffffff;
+  --link: #3ea6ff;
+  --overlay: rgba(0, 0, 0, 0.6);
+  --badge-bg: rgba(0, 0, 0, 0.8);
+  --topbar-h: 56px;
+  --bottomnav-h: 56px;
+  --sidebar-w: 240px;
+  --rail-w: 72px;
+  --radius: 12px;
+  --font: 'Roboto', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #ffffff;
+  --bg-raised: #f2f2f2;
+  --bg-hover: #e5e5e5;
+  --bg-chip: #f2f2f2;
+  --bg-chip-active: #0f0f0f;
+  --fg-chip-active: #ffffff;
+  --fg: #0f0f0f;
+  --fg-muted: #606060;
+  --border: #e0e0e0;
+  --link: #065fd4;
+  --overlay: rgba(0, 0, 0, 0.4);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Honeypot field for bots */
+.hp {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Shared chip + grid */
+.chip {
+  flex-shrink: 0;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--bg-chip);
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.chip:hover {
+  background: var(--bg-hover);
+}
+.chip--active,
+.chip--active:hover {
+  background: var(--bg-chip-active);
+  color: var(--fg-chip-active);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px 16px;
+}
+@media (min-width: 1600px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Shared pill button used across the site */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 18px;
+  background: var(--bg-raised);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.pill:hover {
+  background: var(--bg-hover);
+}
+.pill svg {
+  font-size: 18px;
+}
+.pill--primary {
+  background: var(--fg);
+  color: var(--bg);
+}
+.pill--primary:hover {
+  background: var(--fg-muted);
+}
+.pill--accent {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.pill--accent:hover {
+  background: var(--accent);
+  filter: brightness(1.1);
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--bg-raised);
+}
+
+.muted {
+  color: var(--fg-muted);
+}
+
+.page {
+  padding: 24px;
+  max-width: 2200px;
+}
+
+@media (max-width: 767px) {
+  .page {
+    padding: 12px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
