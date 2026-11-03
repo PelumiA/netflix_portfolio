@@ -1,0 +1,66 @@
+.contact__who {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.contact__who strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.contact__note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  margin: 0 0 16px;
+}
+.contact__note svg {
+  color: var(--accent);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.contact__h {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 24px 0 8px;
+}
+.contact__form {
+  display: grid;
+  gap: 8px;
+}
+.contact__form input,
+.contact__form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  font-size: 16px;
+  resize: vertical;
+}
+.contact__form input:focus,
+.contact__form textarea:focus {
+  outline: none;
+  border-color: var(--link);
+}
+.contact__form .pill {
+  justify-self: end;
+}
+.contact__form .pill:disabled {
+  opacity: 0.6;
+}
+.contact__error {
+  color: #ff6b6b;
+  margin: 0;
+}
+.contact__sent {
+  margin: 0;
+}

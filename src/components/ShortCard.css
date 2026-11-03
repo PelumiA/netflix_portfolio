@@ -1,0 +1,31 @@
+.short-card {
+  --h: 220;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.short-card__art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 50% 35%, hsl(var(--h) 90% 60% / 0.5), transparent 60%),
+    linear-gradient(180deg, hsl(var(--h) 55% 22%), hsl(calc(var(--h) + 30) 50% 8%));
+  font-size: 64px;
+  color: hsl(var(--h) 90% 85%);
+  transition: transform 0.2s;
+}
+.short-card:hover .short-card__art {
+  transform: scale(1.02);
+}
+.short-card__title {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+.short-card__meta {
+  color: var(--fg-muted);
+  font-size: 14px;
+}

@@ -1,0 +1,146 @@
+.comments {
+  margin-top: 24px;
+}
+.comments__title {
+  margin: 0 0 24px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.comments__list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+.initial {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 500;
+}
+
+.cform {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.cform__fields {
+  flex: 1;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.cform__body,
+.cform__name {
+  width: 100%;
+  padding: 4px 0 6px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  resize: none;
+  font-size: 16px;
+  line-height: 20px;
+  outline: none;
+}
+.cform__body:focus,
+.cform__name:focus {
+  border-bottom: 2px solid var(--fg);
+  padding-bottom: 5px;
+}
+.cform__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+.cform__count {
+  margin-right: auto;
+  font-size: 12px;
+}
+.cform__actions .pill:disabled {
+  background: var(--bg-raised);
+  color: var(--fg-muted);
+  cursor: default;
+  filter: none;
+}
+.cform__error {
+  margin: 0;
+  color: #ff6b6b;
+}
+
+.citem {
+  display: flex;
+  gap: 16px;
+}
+.citem__main {
+  min-width: 0;
+}
+.citem__pinned {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--fg-muted);
+  margin-bottom: 2px;
+}
+.citem__head {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  font-size: 13px;
+}
+.citem__head strong {
+  font-weight: 500;
+}
+.citem__body {
+  margin: 2px 0 0;
+  line-height: 20px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.citem__heart {
+  position: relative;
+  display: inline-flex;
+  margin-top: 6px;
+}
+.citem__heart svg {
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  font-size: 12px;
+  color: #ff4e45;
+}
+
+.comments__teaser {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  text-align: left;
+}
+.comments__teaser-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.comments__teaser-head svg {
+  margin-left: auto;
+  font-size: 20px;
+}
+.comments__teaser-body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  min-width: 0;
+}
+.comments__teaser-body > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

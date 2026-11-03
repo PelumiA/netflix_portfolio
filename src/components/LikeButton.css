@@ -1,0 +1,45 @@
+.like {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  border-radius: 18px;
+  background: var(--bg-raised);
+  font-weight: 500;
+}
+.like__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 0 16px;
+  border-radius: 18px;
+}
+.like__btn:first-child {
+  border-radius: 18px 0 0 18px;
+}
+.like__btn:last-child {
+  border-radius: 0 18px 18px 0;
+  padding: 0 14px;
+}
+.like__btn:hover {
+  background: var(--bg-hover);
+}
+.like__btn svg {
+  font-size: 20px;
+}
+.like__sep {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+.like__icon {
+  display: inline-flex;
+}
+.like__icon--pop {
+  animation: like-pop 0.45s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+@keyframes like-pop {
+  0% { transform: scale(1) rotate(0); }
+  40% { transform: scale(1.4) rotate(-18deg); color: var(--accent); }
+  100% { transform: scale(1) rotate(0); }
+}

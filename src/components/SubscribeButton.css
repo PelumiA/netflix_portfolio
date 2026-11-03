@@ -1,0 +1,36 @@
+.sub-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 18px;
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+}
+.sub-btn:active {
+  transform: scale(0.96);
+}
+.sub-btn--on {
+  background: var(--bg-raised);
+  color: var(--fg);
+}
+.sub-btn--on:hover {
+  background: var(--bg-hover);
+}
+.sub-btn__bell {
+  font-size: 20px;
+  animation: bell-ring 0.8s ease;
+  transform-origin: 50% 10%;
+}
+@keyframes bell-ring {
+  0%, 100% { transform: rotate(0); }
+  15% { transform: rotate(25deg); }
+  30% { transform: rotate(-20deg); }
+  45% { transform: rotate(15deg); }
+  60% { transform: rotate(-10deg); }
+  75% { transform: rotate(5deg); }
+}

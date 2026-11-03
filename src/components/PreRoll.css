@@ -1,0 +1,99 @@
+.preroll {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px 20px 20px;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 60%),
+    var(--bg-raised);
+  overflow: hidden;
+}
+.preroll__body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.preroll__pitch {
+  margin: 0 0 2px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.preroll__sub {
+  margin: 0;
+  color: var(--fg-muted);
+}
+.preroll__tag {
+  display: inline-block;
+  padding: 0 4px;
+  border-radius: 3px;
+  background: #ffd600;
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+}
+.preroll__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.preroll__skip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-weight: 500;
+}
+.preroll__skip:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+.preroll__info {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--fg-muted);
+  cursor: help;
+}
+.preroll__bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background: #ffd600;
+  transform-origin: left;
+  animation: preroll-bar linear forwards;
+}
+@keyframes preroll-bar {
+  from {
+    transform: scaleX(0);
+  }
+}
+@media (max-width: 767px) {
+  .preroll {
+    margin: 0 12px 16px;
+    padding: 24px 16px 16px;
+  }
+  .preroll__pitch {
+    font-size: 16px;
+  }
+  .preroll__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,250 @@
+.watch {
+  display: flex;
+  gap: 24px;
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.watch__primary {
+  flex: 1;
+  min-width: 0;
+}
+.watch__secondary {
+  width: 402px;
+  flex-shrink: 0;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.watch__player {
+  position: relative;
+  isolation: isolate;
+}
+/* Ambient mode: a soft glow in the video's own color bleeding out behind the player */
+.watch__ambient {
+  --h: 220;
+  position: absolute;
+  inset: -6% -4%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 30% 40%, hsl(var(--h) 80% 50% / 0.45), transparent 60%),
+    radial-gradient(ellipse at 75% 60%, hsl(calc(var(--h) + 40) 80% 50% / 0.35), transparent 60%);
+  filter: blur(48px);
+  opacity: 0.8;
+  pointer-events: none;
+}
+:root[data-theme='light'] .watch__ambient {
+  opacity: 0.35;
+}
+
+.watch__title {
+  margin: 12px 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+.watch__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.watch__channel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.watch__channel-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin-right: 12px;
+  font-size: 12px;
+}
+.watch__channel-name {
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.watch__channel-name svg {
+  vertical-align: -2px;
+  font-size: 14px;
+  color: var(--fg-muted);
+}
+.watch__actions {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.desc {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  line-height: 20px;
+}
+.desc:not(.desc--open) {
+  cursor: pointer;
+}
+.desc:not(.desc--open):hover {
+  background: var(--bg-hover);
+}
+.desc__meta {
+  margin: 0 0 4px;
+  font-weight: 500;
+}
+.desc__tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 6px;
+}
+.desc__tags a {
+  color: var(--link);
+}
+.desc__summary {
+  margin: 0;
+}
+.desc__bullets {
+  margin: 4px 0 0;
+  padding-left: 20px;
+}
+.desc:not(.desc--open) .desc__bullets {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.desc:not(.desc--open) .desc__bullets li {
+  display: inline;
+}
+.desc:not(.desc--open) .desc__bullets li + li::before {
+  content: ' · ';
+}
+.desc__h {
+  margin: 20px 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.desc__toggle {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 500;
+}
+.desc__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.desc__links a {
+  color: var(--link);
+}
+.desc__links svg {
+  vertical-align: -2px;
+}
+.desc__playlist {
+  margin: 16px 0 0;
+}
+.desc__playlist a {
+  color: var(--link);
+}
+
+.chapters {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.chapter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 6px;
+  border-radius: 8px;
+  text-align: left;
+}
+.chapter:hover,
+.chapter--active {
+  background: var(--bg-hover);
+}
+.chapter .thumb {
+  width: 88px;
+  flex-shrink: 0;
+}
+.chapter .thumb__text {
+  font-size: 24px;
+}
+.chapter strong {
+  display: block;
+  font-weight: 500;
+}
+.chapter__time {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 0 4px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--link) 15%, transparent);
+  color: var(--link);
+  font-size: 12px;
+}
+
+@media (max-width: 1100px) {
+  .watch {
+    flex-direction: column;
+  }
+  .watch__secondary {
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .watch {
+    padding: 0 0 24px;
+    gap: 16px;
+  }
+  /* Keep the player pinned under the top bar while scrolling, like the app */
+  .watch__player {
+    position: sticky;
+    top: var(--topbar-h);
+    z-index: 20;
+  }
+  .watch__ambient {
+    display: none;
+  }
+  .watch__body,
+  .watch__secondary {
+    padding: 0 12px;
+  }
+  .watch__title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .watch__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .watch__channel .sub-btn {
+    margin-left: auto;
+  }
+  .watch__actions {
+    margin: 0 -12px;
+    padding: 0 12px;
+  }
+  .watch__secondary {
+    gap: 16px;
+  }
+  .watch__secondary .vcard--row {
+    flex-direction: column;
+  }
+  .watch__secondary .vcard--row .thumb {
+    width: auto;
+    margin: 0 -12px;
+    border-radius: 0;
+  }
+}
